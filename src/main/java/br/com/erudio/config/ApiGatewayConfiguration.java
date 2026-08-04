@@ -25,6 +25,9 @@ public class ApiGatewayConfiguration {
                                 .addRequestParameter("Hello", "Word"))
                         .uri("http://httpbin.org:80")) // Depois de aplicar os filtros, encaminhe a requisição para http://httpbin.org
                         // O httpbin.org é um serviço criado justamente para testes de HTTP. Ele devolve exatamente o que recebeu
+
+                .route(p -> p.path("/book-service/**").uri("lb://book-service")) //lb:// já é reconhecido como loading balancer automaticamente
+                .route(p -> p.path("/exchange-service/**").uri("lb://exchange-service"))
                 .build();
     }
 }
