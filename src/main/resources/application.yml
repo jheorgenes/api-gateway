@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name: api-gateway
-# Habilitando comunicação com outros microsserviços através desse.
+# Habilitando comunicação com outros microsserviços através desse, usando webflux
   cloud:
     gateway:
       server:
