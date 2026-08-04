@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: api-gateway
+# Habilitando comunicação com outros microsserviços através desse.
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
