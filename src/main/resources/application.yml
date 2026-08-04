@@ -1,0 +1,6 @@
+# Porta normalmente padrão para api-gateway 8765
+server:
+  port: 8765
+spring:
+  application:
+    name: api-gateway
