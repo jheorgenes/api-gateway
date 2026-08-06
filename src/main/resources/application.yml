@@ -9,7 +9,26 @@ spring:
     gateway:
       server:
         webflux:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
+          routes:
+            - id: book-service
+              uri: lb://book-service
+              predicates:
+                - Path=/book-service/**
+            - id: exchange-service
+              uri: lb://exchange-service
+              predicates:
+                - Path=/exchange-service/**
+#          # Pega a configuração local dos microsserviços
+#          discovery:
+#            locator:
+#              enabled: true
+#              lower-case-service-id: true
+
+# Alterando o caminho de acesso aos microsserviços ao swagger
+springdoc:
+  swagger-ui:
+    urls:
+      - name: book-service
+        url: /book-service/v3/api-docs
+      - name: exchange-service
+        url: /exchange-service/v3/api-docs
