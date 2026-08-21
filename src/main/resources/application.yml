@@ -51,3 +51,4 @@ springdoc:
         url: /book-service/v3/api-docs
       - name: exchange-service
         url: /exchange-service/v3/api-docs
+
